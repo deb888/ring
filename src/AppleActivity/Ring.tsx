@@ -31,21 +31,21 @@ export default ({ ring, theta }: RingProps) => {
   const rotate = max(0, sub(theta, TAU));
   const opacity = lessThan(theta, TAU);
   const translation = useRef(new Rn.Value(0)).current;
-  // const backgroundColor = interpolateColor(theta, {
-  //   inputRange: [0, TAU],
-  //   outputRange: [ring.start, ring.end],
-  // });
-  useEffect(() => {
-    Rn.timing(translation, {
-      toValue: TAU,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
-  }, []);
-  const backgroundColor =  translation.interpolate({
+  const backgroundColor = interpolateColor(theta, {
     inputRange: [0, TAU],
-    outputRange: ['orange', 'blue'],
+    outputRange: [ring.start, ring.end],
   });
+  // useEffect(() => {
+  //   Rn.timing(translation, {
+  //     toValue: TAU,
+  //     duration: 1000,
+  //     useNativeDriver: false,
+  //   }).start();
+  // }, []);
+  // const backgroundColor =  translation.interpolate({
+  //   inputRange: [0, TAU],
+  //   outputRange: ['orange', 'blue'],
+  // });
   return (
     <View>
       <Animated.View style={{ transform: [{ rotate }] }}>
