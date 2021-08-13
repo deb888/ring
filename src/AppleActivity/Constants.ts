@@ -23,7 +23,7 @@ export const R1: Ring = {
   start: "rgb(246, 95, 48)",
   end: "rgb(104, 3, 3)",
   bg: "rgb(191, 145, 130)",
-  theta: 8.6 * TAU,
+  theta: 3.6 * TAU,
   size: SIZE - STROKE_WIDTH * 4,
 };
 
